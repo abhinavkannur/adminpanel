@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="/styles/usersignin.css">
+</head>
+<body>
+  
+    <div class="signin-container">
+        <h2>Sign In</h2>
+        <form action="/register" onsubmit="formvalidate">
+            <input id="email" type="email" placeholder="Email">
+            <input id="password" type="password" placeholder="Password">
+               <input id="conformpassword" type="password" placeholder="Conform Password">
+            <button type="submit">Sign In</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+    </div>
+    <script>
+      document.addEventListener(DOMconetentLoaded,function(){
+        document.querySelector('form').addEventListener('submit',formvalidate)
+
+
+         function formvalidate(e){
+          e.preventDefault()
+        var email=document.getElementById('email').value
+        var password=document.getElementById('password').value
+        var conformpassword=document.getElementById('conformpassword').value
+        if(email=="" || password== "" || conformpassword== ""){
+          swal('all fields are required');
+          return false;
+        }else if(password != conformpassword)
+        {
+          swal('password doesent match')
+          return false
+
+        }
+        return true
+      }
+            });
+
+
+     
+    </script>
+</body>
+</html>
